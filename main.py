@@ -271,7 +271,11 @@ if __name__ == "__main__":
     email_listener_thread = threading.Thread(target=start_email_listener, daemon=True)
     email_listener_thread.start()
     
-    # Run the Flask app
-
+    # Run the Flask app (hosting it on render)
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port, debug=False)
+    
+    # To run the app locally comment or remove lines 275 & 276 and uncomment the code bellow
+    #app.run(debug=True)
+
+    
