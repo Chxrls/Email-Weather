@@ -1,8 +1,10 @@
 # Weather-Email Application powered by openweather
 
+Web Interface: http://email-weather.onrender.com
 
-## Getting Started
+## To run the app locally
 
+ - Check the main.py file and scroll on the bottom. Further changes are required
 
 Intialize the environment
 ```
