@@ -118,8 +118,7 @@ Humidity: {weather_data['humidity']}%
 Description: {weather_data['description']}
 Wind Speed: {weather_data['wind_speed']} m/s
 Atmospheric Pressure: {weather_data['pressure']} hPa
-
-Brought to you by Weather Email Service""")
+""")
         
         msg['Subject'] = f"Weather Report for {weather_data['city']}"
         msg['From'] = EMAIL_ADDRESS
