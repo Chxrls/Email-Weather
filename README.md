@@ -1,7 +1,7 @@
-## Weather-Email Application powered by openweather
+# Weather-Email Application powered by openweather
 
 
-# Getting Started
+## Getting Started
 
 
 Intialize the environment
