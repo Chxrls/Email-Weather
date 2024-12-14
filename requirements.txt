@@ -4,3 +4,6 @@ autopep8
 
 # App
 flask
+pytz
+Flask-SQLAlchemy
+requests
