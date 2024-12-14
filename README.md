@@ -1,7 +1,20 @@
-# Flask Web App Starter
+## Weather-Email Application powered by openweather
 
-A Flask starter template as per [these docs](https://flask.palletsprojects.com/en/3.0.x/quickstart/#a-minimal-application).
 
-## Getting Started
+# Getting Started
 
-Previews should run automatically when starting a workspace.
+
+Intialize the environment
+```
+python -m venv venv
+venv\Script\activate
+```
+
+Install the required libraries
+```
+pip install -r requirements.txt
+```
+Launch the application
+```
+python main.py
+```
