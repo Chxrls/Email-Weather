@@ -9,7 +9,7 @@ Web Interface: http://email-weather.onrender.com
 Intialize the environment
 ```
 python -m venv venv
-venv\Script\activate
+.venv\Script\activate
 ```
 
 Install the required libraries
