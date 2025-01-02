@@ -27,11 +27,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Weather API Configuration
-WEATHERAPI_KEY = '31b4cb0b06d148ffad870619241312'  # Replace with your actual API key
+WEATHERAPI_KEY = '31b4cb0b06d148ffad870619241312'
 
 # Email Configuration
 EMAIL_ADDRESS = 'charlsweather@gmail.com'
-EMAIL_PASSWORD = 'swuo dtov lqru ctsx'  # Use an app-specific password
+EMAIL_PASSWORD = 'swuo dtov lqru ctsx'
 IMAP_SERVER = 'imap.gmail.com'
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 465
@@ -71,7 +71,6 @@ class WeatherRequest(db.Model):
     processed = db.Column(db.Boolean, default=False)
 
 # Weather API Configuration
-
 def get_weather_data(city, country=None):
     """
     Fetch weather data from WeatherAPI
@@ -80,7 +79,6 @@ def get_weather_data(city, country=None):
         # Construct the query parameter
         query = f"{city},{country}" if country else city
         
-        # API call
         url = f"http://api.weatherapi.com/v1/current.json?key={WEATHERAPI_KEY}&q={query}&aqi=no"
         
         response = requests.get(url)
@@ -88,7 +86,7 @@ def get_weather_data(city, country=None):
         
         weather_data = response.json()
         
-        # Extract relevant information
+        # Grab the data
         return {
             "city": weather_data['location']['name'],
             "country": weather_data['location']['country'],
@@ -109,7 +107,6 @@ def send_weather_response(requester_email, weather_data):
     Send weather response email
     """
     try:
-        # Create the email message
         msg = MIMEText(f"""Weather Report for {weather_data['city']}, {weather_data['country']}:
 
 Temperature: {weather_data['temperature']}°C
@@ -141,7 +138,6 @@ def parse_email_request(body):
     Parse email body for city, region, country
     Expected format: "city, region, country"
     """
-    # Remove any leading/trailing whitespace and split
     parts = [part.strip() for part in body.split(',')]
     
     # Handle different input formats
@@ -226,7 +222,7 @@ def start_email_listener():
                 mail.store(num, '+FLAGS', '\\Seen')
             
             # Wait before checking again
-            time.sleep(30)
+            time.sleep(15)
         
         except Exception as e:
             log_capture.logger.error(f"Email listener error: {str(e)}")
